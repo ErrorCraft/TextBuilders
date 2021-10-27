@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "textbuilders",
+  "version": "${version}",
+
+  "name": "Text Builders",
+  "description": "A mod that adds text builders to Minecraft.",
+  "authors": [
+    "ErrorCraft"
+  ],
+  "contact": {
+    "homepage": "https://github.com/ErrorCraft/TextBuilders",
+    "sources": "https://github.com/ErrorCraft/TextBuilders"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/textbuilders/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "errorcraft.textbuilders.TextBuilders"
+    ]
+  },
+  "mixins": [
+    "textbuilders.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
