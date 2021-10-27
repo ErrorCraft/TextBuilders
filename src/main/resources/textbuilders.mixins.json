@@ -4,6 +4,7 @@
   "package": "errorcraft.textbuilders.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "registry.RegistryAccessor"
   ],
   "client": [
   ],
