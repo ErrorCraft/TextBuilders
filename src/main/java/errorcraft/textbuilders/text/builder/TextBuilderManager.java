@@ -36,6 +36,32 @@ public class TextBuilderManager extends JsonDataLoader {
 	}
 
 	private TextBuilder deserialise(JsonElement json) {
+		if (json.isJsonArray()) {
+			TextBuilder[] builders = GSON.fromJson(json, TextBuilder[].class);
+			return new TextBuilderSequence(builders);
+		}
 		return GSON.fromJson(json, TextBuilder.class);
+	}
+
+	private static class TextBuilderSequence implements TextBuilder {
+		private final TextBuilder[] builders;
+
+		public TextBuilderSequence(TextBuilder[] builders) {
+			this.builders = builders;
+		}
+
+		@Override
+		public TextBuilderType getType() {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public String get() {
+			StringBuilder stringBuilder = new StringBuilder();
+			for(TextBuilder builder : this.builders) {
+				stringBuilder.append(builder.get());
+			}
+			return stringBuilder.toString();
+		}
 	}
 }
