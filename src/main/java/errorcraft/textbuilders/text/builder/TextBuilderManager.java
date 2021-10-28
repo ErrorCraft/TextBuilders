@@ -3,6 +3,7 @@ package errorcraft.textbuilders.text.builder;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import net.minecraft.loot.context.LootContext;
 import net.minecraft.resource.JsonDataLoader;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
@@ -56,10 +57,10 @@ public class TextBuilderManager extends JsonDataLoader {
 		}
 
 		@Override
-		public String get() {
+		public String apply(LootContext lootContext) {
 			StringBuilder stringBuilder = new StringBuilder();
 			for(TextBuilder builder : this.builders) {
-				stringBuilder.append(builder.get());
+				stringBuilder.append(builder.apply(lootContext));
 			}
 			return stringBuilder.toString();
 		}

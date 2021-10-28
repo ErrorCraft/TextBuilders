@@ -6,6 +6,7 @@ import com.google.gson.JsonSerializationContext;
 import errorcraft.textbuilders.text.builder.TextBuilder;
 import errorcraft.textbuilders.text.builder.TextBuilderType;
 import errorcraft.textbuilders.text.builder.TextBuilderTypes;
+import net.minecraft.loot.context.LootContext;
 import net.minecraft.util.JsonHelper;
 
 public class LiteralTextBuilder implements TextBuilder {
@@ -21,7 +22,7 @@ public class LiteralTextBuilder implements TextBuilder {
 	}
 
 	@Override
-	public String get() {
+	public String apply(LootContext lootContext) {
 		return this.literal;
 	}
 
