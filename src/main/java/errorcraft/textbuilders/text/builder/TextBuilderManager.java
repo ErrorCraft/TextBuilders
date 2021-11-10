@@ -22,6 +22,10 @@ public class TextBuilderManager extends JsonDataLoader {
 		super(GSON, "text_builders");
 	}
 
+	public TextBuilder get(Identifier resourceLocation) {
+		return this.textBuilders.get(resourceLocation);
+	}
+
 	@Override
 	protected void apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler) {
 		ImmutableMap.Builder<Identifier, TextBuilder> builder = ImmutableMap.builder();

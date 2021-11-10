@@ -1,6 +1,7 @@
 package errorcraft.textbuilders.text.provider;
 
 import errorcraft.textbuilders.mixin.registry.RegistryAccessor;
+import errorcraft.textbuilders.text.provider.providers.BuilderTextProvider;
 import errorcraft.textbuilders.text.provider.providers.StringTextProvider;
 import net.minecraft.util.JsonSerializing;
 import net.minecraft.util.registry.Registry;
@@ -11,6 +12,7 @@ public class TextProviderTypes {
 	public static final Registry<TextProviderType> TEXT_PROVIDER_TYPE = RegistryAccessor.create(TEXT_PROVIDER_TYPE_KEY, () -> null);
 
 	public static final TextProviderType STRING = register("string", new StringTextProvider.Serialiser());
+	public static final TextProviderType BUILDER = register("builder", new BuilderTextProvider.Serialiser());
 
 	public static Object createGsonAdapter() {
 		return JsonSerializing.createSerializerBuilder(TEXT_PROVIDER_TYPE, "type", "type", TextProvider::getType).build();
