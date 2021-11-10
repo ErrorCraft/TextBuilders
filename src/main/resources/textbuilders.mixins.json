@@ -8,7 +8,9 @@
     "resource.ServerResourceManagerAccessor",
     "resource.ServerResourceManagerExtender",
     "server.MinecraftServerAccessor",
-    "server.MinecraftServerExtender"
+    "server.MinecraftServerExtender",
+    "text.LiteralTextExtender",
+    "text.TextSerializerExtender"
   ],
   "client": [
   ],
