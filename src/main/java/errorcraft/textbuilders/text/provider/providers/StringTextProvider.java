@@ -6,7 +6,7 @@ import com.google.gson.JsonSerializationContext;
 import errorcraft.textbuilders.text.provider.TextProvider;
 import errorcraft.textbuilders.text.provider.TextProviderType;
 import errorcraft.textbuilders.text.provider.TextProviderTypes;
-import net.minecraft.loot.context.LootContext;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.JsonHelper;
 
 public class StringTextProvider implements TextProvider {
@@ -22,7 +22,7 @@ public class StringTextProvider implements TextProvider {
 	}
 
 	@Override
-	public String apply(LootContext lootContext) {
+	public String apply(ServerCommandSource serverCommandSource) {
 		return this.string;
 	}
 
