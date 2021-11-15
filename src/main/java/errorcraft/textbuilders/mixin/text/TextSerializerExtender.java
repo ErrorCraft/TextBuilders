@@ -37,11 +37,10 @@ public class TextSerializerExtender {
 	}
 
 	private TextProvider getTextProvider(JsonElement json) {
-		try {
-			return TEXT_PROVIDER_GSON.fromJson(json, TextProvider.class);
-		} catch (UnsupportedOperationException e) {
+		if (!json.isJsonObject()) {
 			throw new JsonParseException("Don't know how to turn " + json + " into a Component");
 		}
+		return TEXT_PROVIDER_GSON.fromJson(json, TextProvider.class);
 	}
 
 	private void setTextProvider(LiteralText literalText) {
