@@ -21,11 +21,12 @@ public class TextSerializerExtender {
 
 	@Redirect(method = "deserialize(Lcom/google/gson/JsonElement; Ljava/lang/reflect/Type; Lcom/google/gson/JsonDeserializationContext;)Lnet/minecraft/text/MutableText;", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/JsonHelper;getString(Lcom/google/gson/JsonObject; Ljava/lang/String;)Ljava/lang/String;", ordinal = 0))
 	private String readTextObject(JsonObject object, String element) {
-		if (JsonHelper.hasString(object, element)) {
-			return JsonHelper.getString(object, element);
+		JsonElement text = object.get(element);
+		if (text.isJsonPrimitive()) {
+			return text.getAsString();
 		}
 
-		this.textProvider = getTextProvider(object.get(element));
+		this.textProvider = getTextProvider(text);
 		return "";
 	}
 
