@@ -1,7 +1,7 @@
 package errorcraft.textbuilders.mixin.text;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import errorcraft.textbuilders.access.text.LiteralTextExtenderAccess;
+import errorcraft.textbuilders.text.provider.TextProviderAccess;
 import errorcraft.textbuilders.text.provider.TextProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.command.ServerCommandSource;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LiteralText.class)
-public class LiteralTextExtender implements LiteralTextExtenderAccess, ParsableText {
+public class LiteralTextExtender implements TextProviderAccess, ParsableText {
 	@Final
 	@Shadow
 	private String string;

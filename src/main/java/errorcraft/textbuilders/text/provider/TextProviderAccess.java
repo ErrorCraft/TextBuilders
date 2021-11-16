@@ -1,7 +1,7 @@
-package errorcraft.textbuilders.access.text;
+package errorcraft.textbuilders.text.provider;
 
 import errorcraft.textbuilders.text.provider.TextProvider;
 
-public interface LiteralTextExtenderAccess {
+public interface TextProviderAccess {
 	void setTextProvider(TextProvider textProvider);
 }

@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import errorcraft.textbuilders.access.text.LiteralTextExtenderAccess;
+import errorcraft.textbuilders.text.provider.TextProviderAccess;
 import errorcraft.textbuilders.text.provider.Deserialisers;
 import errorcraft.textbuilders.text.provider.TextProvider;
 import net.minecraft.text.LiteralText;
@@ -48,7 +48,7 @@ public class TextSerializerExtender {
 		if (this.textProvider == null) {
 			return;
 		}
-		((LiteralTextExtenderAccess)literalText).setTextProvider(this.textProvider);
+		((TextProviderAccess)literalText).setTextProvider(this.textProvider);
 		this.textProvider = null;
 	}
 }
