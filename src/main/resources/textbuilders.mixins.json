@@ -10,7 +10,8 @@
     "server.MinecraftServerAccessor",
     "server.MinecraftServerExtender",
     "text.LiteralTextExtender",
-    "text.TextSerializerExtender"
+    "text.TextSerializerExtender",
+    "text.TranslatableTextExtender"
   ],
   "client": [
   ],
