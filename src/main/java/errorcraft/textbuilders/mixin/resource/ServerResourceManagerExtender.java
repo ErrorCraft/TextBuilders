@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ServerResourceManagerExtender implements ServerResourceManagerExtenderAccess {
 	private TextBuilderManager textBuilderManager;
 
-	@Inject(at = @At("RETURN"), method = "<init>(Lnet/minecraft/util/registry/DynamicRegistryManager; Lnet/minecraft/server/command/CommandManager/RegistrationEnvironment; I)V")
+	@Inject(at = @At("RETURN"), method = "<init>(Lnet/minecraft/util/registry/DynamicRegistryManager; Lnet/minecraft/server/command/CommandManager$RegistrationEnvironment; I)V")
 	private void injectTextBuilderManagerIntoConstructor(DynamicRegistryManager registryManager, RegistrationEnvironment commandEnvironment, int functionPermissionLevel, CallbackInfo info) {
 		this.textBuilderManager = new TextBuilderManager();
 		((ServerResourceManagerAccessor)this).getResourceManager().registerReloader(this.textBuilderManager);
