@@ -22,8 +22,8 @@ public class LiteralTextBuilder implements TextBuilder {
 	}
 
 	@Override
-	public String apply(LootContext lootContext) {
-		return this.literal;
+	public void accept(StringBuilder stringBuilder, LootContext lootContext) {
+		stringBuilder.append(this.literal);
 	}
 
 	public static class Serialiser implements TextBuilder.Serialiser<LiteralTextBuilder> {

@@ -44,7 +44,9 @@ public class BuilderTextProvider implements TextProvider {
 		LootContext.Builder lootContextBuilder = new LootContext.Builder(serverCommandSource.getWorld())
 				.parameter(LootContextParameters.ORIGIN, serverCommandSource.getPosition())
 				.optionalParameter(LootContextParameters.THIS_ENTITY, serverCommandSource.getEntity());
-		return textBuilder.apply(lootContextBuilder.build(LootContextTypes.COMMAND));
+		StringBuilder stringBuilder = new StringBuilder();
+		textBuilder.accept(stringBuilder, lootContextBuilder.build(LootContextTypes.COMMAND));
+		return stringBuilder.toString();
 	}
 
 	public static class Serialiser implements TextProvider.Serialiser<BuilderTextProvider> {

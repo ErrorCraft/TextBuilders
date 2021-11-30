@@ -61,12 +61,10 @@ public class TextBuilderManager extends JsonDataLoader {
 		}
 
 		@Override
-		public String apply(LootContext lootContext) {
-			StringBuilder stringBuilder = new StringBuilder();
-			for(TextBuilder builder : this.builders) {
-				stringBuilder.append(builder.apply(lootContext));
+		public void accept(StringBuilder stringBuilder, LootContext lootContext) {
+			for (TextBuilder builder : this.builders) {
+				builder.accept(stringBuilder, lootContext);
 			}
-			return stringBuilder.toString();
 		}
 	}
 }

@@ -28,21 +28,21 @@ public class ScoreTextBuilder implements TextBuilder {
 	}
 
 	@Override
-	public String apply(LootContext lootContext) {
+	public void accept(StringBuilder stringBuilder, LootContext lootContext) {
 		String name = this.targetProvider.getName(lootContext);
 		if (name == null) {
-			return "";
+			return;
 		}
 		Scoreboard scoreboard = lootContext.getWorld().getScoreboard();
 		ScoreboardObjective scoreboardObjective = scoreboard.getNullableObjective(this.scoreboard);
 		if (scoreboardObjective == null) {
-			return "";
+			return;
 		}
 		if (!scoreboard.playerHasObjective(name, scoreboardObjective)) {
-			return "";
+			return;
 		}
 		ScoreboardPlayerScore scoreboardPlayerScore = scoreboard.getPlayerScore(name, scoreboardObjective);
-		return Integer.toString(scoreboardPlayerScore.getScore());
+		stringBuilder.append(scoreboardPlayerScore.getScore());
 	}
 
 	public static class Serialiser implements TextBuilder.Serialiser<ScoreTextBuilder> {

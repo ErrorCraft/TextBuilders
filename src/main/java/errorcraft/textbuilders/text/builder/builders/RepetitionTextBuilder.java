@@ -25,13 +25,10 @@ public class RepetitionTextBuilder implements TextBuilder {
 	}
 
 	@Override
-	public String apply(LootContext lootContext) {
-		String string = stringProvider.apply(lootContext);
-		StringBuilder stringBuilder = new StringBuilder();
-		for (int count = countProvider.nextInt(lootContext); count > 0; count--) {
-			stringBuilder.append(string);
-		}
-		return stringBuilder.toString();
+	public void accept(StringBuilder stringBuilder, LootContext lootContext) {
+		StringBuilder stringProviderBuilder = new StringBuilder();
+		this.stringProvider.accept(stringProviderBuilder, lootContext);
+		stringBuilder.append(stringProviderBuilder.toString().repeat(Math.max(0, countProvider.nextInt(lootContext))));
 	}
 
 	public static class Serialiser implements TextBuilder.Serialiser<RepetitionTextBuilder> {
