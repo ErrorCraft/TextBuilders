@@ -12,6 +12,7 @@ Text builders are JSON files in data packs.
 You can create text builders under the `text_builders` folder in your namespace.
 Inside the file you can either have one or an array of text builders. An array combines all specified text builders together.
 After that you can reference the text builder with a text provider.
+There's a [wiki](https://github.com/ErrorCraft/TextBuilders/wiki) for more information about text builders.
 
 ## Text providers
 A text provider is a way to give the text for text components.
